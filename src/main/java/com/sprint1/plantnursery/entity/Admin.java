@@ -3,9 +3,7 @@ package com.sprint1.plantnursery.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/*Controller Class for Customer Controller
-Author : Nikhil Bandgad
-*/
+/*Controller Class for Customer Controller*/
 
 @Entity
 public class Admin {

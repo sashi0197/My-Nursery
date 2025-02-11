@@ -5,10 +5,10 @@
    Body -> Raw -> JSON
    {
     "customerId" : 1,
-    "customerName" : "Smita Pradhan",
-    "customerEmail" : "smita123@gmail.com",
-    "username" : "smita",
-    "password" : "smita123"
+    "customerName" : "ramesh",
+    "customerEmail" : "ramesh@gmail.com",
+    "username" : "ramesh",
+    "password" : "ramesh"
 	}
 	
 ------------------------------------GET----------------------------------------------

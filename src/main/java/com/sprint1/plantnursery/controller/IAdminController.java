@@ -16,7 +16,7 @@ import com.sprint1.plantnursery.entity.Admin;
 import com.sprint1.plantnursery.service.IAdminService;
 
 /*Controller Class for Customer Controller
-Author : Nikhil Bandgad
+
 */
 
 @RequestMapping(value={"/loginController"})

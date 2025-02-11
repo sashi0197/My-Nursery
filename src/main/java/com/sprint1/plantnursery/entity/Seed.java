@@ -7,9 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/*Controller Class for Seed Controller
-Created By : Smita Pradhan 
-*/
+/*Controller Class for Seed Controller*/
 
 @Entity
 @Table(name="seed")
@@ -29,8 +27,7 @@ public class Seed
 	private double seedsCost;
 	private int seedsPerPacket;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	private Planter planter;
+	
 
 	public int getSeedId() {
 		return id;

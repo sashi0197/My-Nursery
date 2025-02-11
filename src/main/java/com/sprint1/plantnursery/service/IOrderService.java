@@ -3,9 +3,7 @@ import java.util.List;
 
 import com.sprint1.plantnursery.entity.OrderTable;
 
-/*Controller Class for Order Controller
-Created By: Sakshi Shah
-*/
+/*Controller Class for Order Controller*/
 
 public interface IOrderService {
 	OrderTable addOrder(OrderTable order);

@@ -1,8 +1,6 @@
 package com.sprint1.plantnursery.repository;
 
-/*Controller Class for Order Controller
-Created By: Sakshi Shah
-*/
+/*Controller Class for Order Controller*/
 
 import java.util.Optional;
 

@@ -9,9 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/*Controller Class for Order Controller
-Created By: Sakshi Shah
-*/
+/*Controller Class for Order Controller*/
 
 @Entity
 @Table(name = "ordertable")
@@ -24,8 +22,8 @@ public class OrderTable {
 	private int quantity;
 	private double price;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	private Planter planter;
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	private Planter planter;
 	
 	public OrderTable() {
 

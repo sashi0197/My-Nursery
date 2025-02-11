@@ -8,9 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.sprint1.plantnursery.entity.Seed;
 
 
-/*Controller Class for Seed Controller
-Created By : Smita Pradhan 
-*/
+/*Controller Class for Seed Controller*/
 
 public interface ISeedRepository extends JpaRepository<Seed, Integer>{
 	

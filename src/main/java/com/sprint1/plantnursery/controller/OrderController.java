@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.sprint1.plantnursery.entity.OrderTable;
+import com.sprint1.plantnursery.entity.Plant;
+import com.sprint1.plantnursery.exceptions.OrderIdNotFoundException;
+import com.sprint1.plantnursery.exceptions.PlantIdNotFoundException;
 import com.sprint1.plantnursery.service.IOrderService;
 
 /*Controller Class for Order Controller
-Created By: Sakshi Shah
-*/
 
+*/
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping("/Orders")
 public class OrderController{
@@ -42,9 +46,9 @@ public class OrderController{
 	}
 	
 	@DeleteMapping("/deleteOrder/id/{bookingId}")
-	public ResponseEntity<String> deleteOrder(@PathVariable int bookingId)  {
-		orderService.deleteOrder(bookingId);
-		return new ResponseEntity<String>("The order with id " + bookingId + " got deleted.", HttpStatus.OK);
+	public ResponseEntity<OrderTable> deleteOrder(@PathVariable int bookingId) throws OrderIdNotFoundException{
+		//logger.trace("deleting the whole plant");	
+		return new ResponseEntity<OrderTable>(orderService.deleteOrder(bookingId), HttpStatus.OK);
 	}
 	
 	@GetMapping("/viewOrder/id/{bookingId}")

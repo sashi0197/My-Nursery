@@ -6,9 +6,7 @@ import java.util.List;
 
 import com.sprint1.plantnursery.entity.Admin;
 
-/*Controller Class for Customer Controller
-Author : Nikhil Bandgad
-*/
+/*Controller Class for Customer Controller*/
 
 public interface IAdminService {
 	public Admin addAdmin(Admin admin);

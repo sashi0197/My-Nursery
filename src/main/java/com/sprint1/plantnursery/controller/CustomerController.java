@@ -1,6 +1,7 @@
 package com.sprint1.plantnursery.controller;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,10 +20,8 @@ import com.sprint1.plantnursery.entity.Customer;
 import com.sprint1.plantnursery.exceptions.UserNotFoundException;
 import com.sprint1.plantnursery.service.ICustomerService;
 
-/*Controller Class for Customer Controller
-Author : Saurabh Pawar
-*/
-
+/*Controller Class for Customer Controller*/
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping("/customers") // Request Mapping tells which URL will initiate what method
 public class CustomerController {
@@ -39,7 +38,7 @@ public class CustomerController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain
 	 *               object in method parameter or return type. 
 	 *               
-	 * Created By-Saurabh Pawar 
+	 * 
 	 * 
 	 ****************************/
 
@@ -57,7 +56,7 @@ public class CustomerController {
 	 * @returns customers It returns String type message 
 	 * @PutMapping: It is used to handle the HTTP POST requests matched with given URI expression.
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
-	 * Created By-Saurabh Pawar
+	 * 
 	 * 
 	 ****************************/	
 
@@ -76,7 +75,7 @@ public class CustomerController {
 	 * @returns Customer It returns Customer  with details
 	 * @GetMapping: It is used to handle the HTTP POST requests matched with given URI expression.
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
-	 * Created By: Saurabh Pawar
+	 * 
 	 * 
 	 ****************************/
 	@GetMapping("/viewAllCustomers")
@@ -92,7 +91,7 @@ public class CustomerController {
 	 * @returns Customer It returns Customer  with details
 	 * @GetMapping: It is used to handle the HTTP POST requests matched with given URI expression.
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
-	 * Created By: Saurabh Pawar
+	 * 
 	 * 
 	 ****************************/
 	
@@ -108,7 +107,7 @@ public class CustomerController {
 	 * @returns customer It returns String type message 
 	 * @DeleteMapping: It is used to handle the HTTP Delete requests matched with given URI expression.
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
-	 * Created By: Saurabh Pawar
+	 * 
 	 * 
 	 ****************************/
 	
@@ -126,7 +125,7 @@ public class CustomerController {
 	 * @returns Customer It returns Customer with details
 	 * @GetMapping: It is used to handle the HTTP POST requests matched with given URI expression.
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
-	 * Created By: Saurabh Pawar 
+	 * 
 	 * 
 	 ****************************/
 

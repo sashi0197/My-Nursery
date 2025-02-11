@@ -4,9 +4,7 @@ import java.util.List;
 
 import com.sprint1.plantnursery.entity.Plant;
 
-/*Service Interface for Plant
-Author : Disha Kale
-*/
+/*Service Interface for Plant*/
 
 public interface IPlantService {
 	
@@ -18,10 +16,10 @@ public interface IPlantService {
 	
 	Plant getPlant(int plantId);
 	
-	Plant getPlant(String commonName);
+	
 	
 	List<Plant> getAllPlants();
 	
-	List<Plant> getAllPlants(String typeOfPlant);
+	
 
 }

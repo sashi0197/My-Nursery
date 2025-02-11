@@ -5,9 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.sprint1.plantnursery.entity.Customer;
 
-/*Controller Class for Customer Controller
-Author : Saurabh Pawar
-*/
+/*Controller Class for Customer Controller*/
 
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {

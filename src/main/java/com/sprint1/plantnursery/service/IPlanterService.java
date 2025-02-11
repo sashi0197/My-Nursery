@@ -3,9 +3,7 @@ package com.sprint1.plantnursery.service;
 import java.util.List;
 import com.sprint1.plantnursery.entity.Planter;
 
-/*Controller Class for Planter Controller
-Created By: Pruthvi Tilwankar
-*/
+/*Controller Class for Planter Controller*/
 
 public interface IPlanterService {
 	public Planter addPlanter(Planter planter);

@@ -6,6 +6,7 @@ import com.sprint1.plantnursery.service.ISeedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,11 +16,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sprint1.plantnursery.entity.Plant;
 import com.sprint1.plantnursery.entity.Seed;
 /*Controller Class for Seed Controller
-Created By : Smita Pradhan 
+
 */
 
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping("/seeds")
 public class ISeedController {
@@ -51,9 +55,11 @@ public class ISeedController {
 	 * 
 	 ****************************/	
 	
-	@PutMapping("/seeds/id/{id}")
-	public ResponseEntity<Seed> updateSeed(@PathVariable int id, @RequestBody Map<Object,Object> fields){
-		return new ResponseEntity<Seed>(seedService.updateSeed(id,fields),HttpStatus.ACCEPTED);
+	@PutMapping("/updateseeds/{id}")
+	public ResponseEntity<Seed> updateSeed(@RequestBody Seed seed, @PathVariable int id) {
+		// logger.trace("updating the whole plant having id "+ id);  
+		seedService.updateSeed(seed, id);
+		return new ResponseEntity<Seed>(seed, HttpStatus.ACCEPTED);
 	}
 	
 	/****************************
@@ -65,7 +71,7 @@ public class ISeedController {
 	 * 
 	 ****************************/
 	
-	@DeleteMapping("/seeds/id/{id}")
+	@DeleteMapping("/deleteseeds/{id}")
 	public ResponseEntity<Seed> deleteSeedById(@PathVariable int id){
 		return new ResponseEntity<Seed>(seedService.deleteSeedById(id),HttpStatus.OK);
 	}
@@ -80,7 +86,7 @@ public class ISeedController {
 	 * 
 	 ****************************/
 	
-	@GetMapping("/seeds/id/{id}")
+	@GetMapping("/getseeds/{id}")
 	public ResponseEntity<Seed> getSeed(@PathVariable int id){
 		return new ResponseEntity<Seed>(seedService.getSeed(id),HttpStatus.OK);	
 	}
@@ -100,14 +106,15 @@ public class ISeedController {
 	 ****************************/
 	
 	@GetMapping("/getSeeds")
-	public ResponseEntity<List<Seed>> getSeeds(){
-		List<Seed> seedList = seedService.getSeeds();
-		return new ResponseEntity<List<Seed>>(seedList,HttpStatus.ACCEPTED);
+	public ResponseEntity<List<Seed>> viewAllSeeds() {
+		//logger.trace("fetching all the plants");
+		return new ResponseEntity<List<Seed>>(seedService.getAllSeeds(), HttpStatus.OK);
 	}
+
 	
 //	@GetMapping("/seeds/typeOfSeed/{typeOfSeed}")
 //	public ResponseEntity<List<Seed>> getSeeds(@PathVariable String typeOfSeed){
-//		List<Seed> seedList = seedService.getSeeds(typeOfSeed);
+//		List<Seed> seedList = seedService.getSeed(typeOfSeed);
 //		return new ResponseEntity<List<Seed>>(seedList,HttpStatus.ACCEPTED);
 //	}
 	

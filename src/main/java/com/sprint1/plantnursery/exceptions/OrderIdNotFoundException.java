@@ -1,8 +1,6 @@
 package com.sprint1.plantnursery.exceptions;
 
-/*Controller Class for Order Controller
-Created By: Sakshi Shah
-*/
+/*Controller Class for Order Controller*/
 
 public class OrderIdNotFoundException extends RuntimeException {
 

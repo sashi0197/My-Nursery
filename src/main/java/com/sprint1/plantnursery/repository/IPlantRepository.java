@@ -7,9 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sprint1.plantnursery.entity.Plant;
 
-/*Repository Class for Plant
-Author : Disha Kale
-*/
+/*Repository Class for Plant*/
 
 	@Repository
 	public interface IPlantRepository extends JpaRepository<Plant, Integer>{

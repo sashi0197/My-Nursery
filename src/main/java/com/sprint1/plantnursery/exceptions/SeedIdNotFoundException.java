@@ -1,8 +1,6 @@
 package com.sprint1.plantnursery.exceptions;
 
-/*Controller Class for Seed Controller
-Created By : Smita Pradhan 
-*/
+/*Controller Class for Seed Controller*/
 
 public class SeedIdNotFoundException extends RuntimeException {
 

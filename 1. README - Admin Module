@@ -5,8 +5,8 @@
    Body -> Raw -> JSON
    {
    "adminId" : 101,
-   "adminUsername" : "Sakshi",
-   "adminPassword" : "Sakshi@123"
+   "adminUsername" : "ram",
+   "adminPassword" : "ram@123"
 	}
 	
 ------------------------------------GET----------------------------------------------

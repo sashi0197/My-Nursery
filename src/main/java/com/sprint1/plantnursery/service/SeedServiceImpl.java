@@ -11,13 +11,12 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import com.sprint1.plantnursery.entity.Plant;
 import com.sprint1.plantnursery.entity.Seed;
 import com.sprint1.plantnursery.exceptions.SeedIdNotFoundException;
 import com.sprint1.plantnursery.repository.ISeedRepository;
 
-/*Controller Class for Seed Controller
-Created By : Smita Pradhan 
-*/
+/*Controller Class for Seed Controller*/
 
 @Service
 @Transactional
@@ -35,19 +34,25 @@ public class SeedServiceImpl implements ISeedService{
 	
 	
 	@Override
-	public Seed updateSeed(int id, Map<Object, Object> fields) {
+	public Seed updateSeed(Seed seed, int id) {
+		
 		Optional<Seed> seedOptional = seedRepo.findById(id);
 		if(seedOptional.isPresent()) {
-		
-			Seed seed = seedRepo.findById(id).get();
-			fields.forEach((k,v)->{
-				Field field = ReflectionUtils.findRequiredField(Seed.class, (String)k);
-				field.setAccessible(true);
-				ReflectionUtils.setField(field, seed, v);	
-			});
-			return seedRepo.save(seed);
+			Seed seedToBeUpdated = seedOptional.get();
+			seedToBeUpdated.setBloomTime(seed.getBloomTime());
+			seedToBeUpdated.setCommanName(seed.getCommanName());
+			seedToBeUpdated.setSeedsCost(seed.getSeedsCost());
+			seedToBeUpdated.setSeedsDescription(seed.getSeedsDescription());
+			seedToBeUpdated.setDifficultyLevel(seed.getDifficultyLevel());
+			seedToBeUpdated.setSeedsStock(seed.getSeedsStock());
+			seedToBeUpdated.setWatering(seed.getWatering());
+			seedToBeUpdated.setTypeOfSeeds(seed.getTypeOfSeeds());
+			seedToBeUpdated.setSeedsPerPacket(seed.getSeedsPerPacket());
+			seedToBeUpdated.setTemprature(seed.getTemprature());
+			seedRepo.save(seedToBeUpdated);
+			return seedToBeUpdated;
 		}
-		return seedOptional.orElseThrow(() -> new SeedIdNotFoundException("Plant Not Found"));
+		return seedOptional.orElseThrow(() -> new SeedIdNotFoundException("Seed Not Found"));
 
 }
 
@@ -67,22 +72,13 @@ public class SeedServiceImpl implements ISeedService{
 		return seedOptional.orElseThrow(() -> new SeedIdNotFoundException("Seed Not Found...Invalid ID"));
 	}
 
-	@Override
-	public Seed getSeed(String name) throws SeedIdNotFoundException {
-		Optional<Seed> seedOptional = seedRepo.findByName(name);
-		return seedOptional.orElseThrow(() -> new SeedIdNotFoundException("Seed Not Found...Invalid Name"));
-	}
+	
 
 	
 	@Override
-	public List<Seed> getSeeds() {
+	public List<Seed> getAllSeeds() {
 		return seedRepo.findAll();
 	}
 
 	
-	@Override
-	public List<Seed> getSeeds(String type) {
-		return seedRepo.findByTypeOfSeed(type);
-	}
-
 }

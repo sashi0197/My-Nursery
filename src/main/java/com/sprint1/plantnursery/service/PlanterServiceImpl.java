@@ -14,9 +14,7 @@ import com.sprint1.plantnursery.exceptions.ResourceNotFoundException;
 import com.sprint1.plantnursery.exceptions.InsufficientStockException;
 import com.sprint1.plantnursery.repository.IPlanterRepository;
 
-/*Controller Class for Planter Controller
-Created By: Pruthvi Tilwankar
-*/
+/*Controller Class for Planter Controller*/
 
 @Service
 @Transactional
@@ -48,7 +46,7 @@ public class PlanterServiceImpl implements IPlanterService {
 			p.setPlanterStock(p.getPlanterStock()-1);
 			if (p.getPlanterStock() < 0)
 				throw new InsufficientStockException("Stock is insufficient");
-			iplanterrepository.save(p);
+			iplanterrepository.delete(p);
 		}
 		return optionalPlanter.orElseThrow(() -> new ResourceNotFoundException("The planter with given id does not exist"));
 	}

@@ -1,8 +1,6 @@
 package com.sprint1.plantnursery.entity;
 
-/*Controller Class for Customer Controller
-Author : Saurabh Pawar
-*/
+/*Controller Class for Customer Controller*/
 
 import java.util.List;
 
@@ -26,9 +24,9 @@ public class Customer {
 	private String username;
 	private String password;
 	
-	@OneToOne
-	@JoinColumn(name="addressId")
-	private Address address;
+//	@OneToOne
+//	@JoinColumn(name="addressId")
+//	private Address address;
 	
 	public Customer()
 	{
@@ -64,12 +62,12 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerEmail="

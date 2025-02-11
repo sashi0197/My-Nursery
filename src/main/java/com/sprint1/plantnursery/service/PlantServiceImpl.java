@@ -10,9 +10,7 @@ import com.sprint1.plantnursery.entity.Plant;
 import com.sprint1.plantnursery.exceptions.PlantIdNotFoundException;
 import com.sprint1.plantnursery.repository.IPlantRepository;
 
-/*Service Class for Plant
-Author : Disha Kale
-*/
+/*Service Class for Plant*/
 
 @Service 
 public class PlantServiceImpl implements IPlantService
@@ -73,29 +71,11 @@ public class PlantServiceImpl implements IPlantService
 		return plantOptional.orElseThrow(() -> new PlantIdNotFoundException("Plant Not Found"));
 	}
 	
-	@Override
-	public Plant getPlant(String commonName){
-		Optional<Plant> plantOptional = plantRepo.findByname(commonName);
-		if(plantOptional.isPresent()) {
-			Plant plant = plantOptional.get();
-			return plant;
-		}
-		return plantOptional.orElseThrow(() -> new PlantIdNotFoundException("Plant Not Found"));
-	}
 	
 	@Override
 	public List<Plant> getAllPlants() {
 		return plantRepo.findAll();
 	}
-	
-	@Override
-	public List<Plant> getAllPlants(String typeOfPlant) {
-		if(plantRepo.findByTypeOfPlant(typeOfPlant).isEmpty()) {
-			throw new PlantIdNotFoundException("No plants of this types are present");
-		}
-		return plantRepo.findByTypeOfPlant(typeOfPlant);
-	
-	}
-	
-
 }
+	
+	

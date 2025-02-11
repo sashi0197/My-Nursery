@@ -1,6 +1,6 @@
 ------------------------------------POST----------------------------------------------
 1. Add Plant : Method "POST"
-2. URL: http://localhost:9092/plants/addPlant
+2. URL: http://localhost:9092/plantsModule/addPlant
 3. INPUT: 
    Body -> Raw -> JSON
    {

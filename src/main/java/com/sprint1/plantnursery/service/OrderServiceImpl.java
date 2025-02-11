@@ -6,23 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sprint1.plantnursery.entity.OrderTable;
-
-
+import com.sprint1.plantnursery.entity.Plant;
 import com.sprint1.plantnursery.exceptions.OrderIdNotFoundException;
+import com.sprint1.plantnursery.exceptions.PlantIdNotFoundException;
 import com.sprint1.plantnursery.repository.IOrderRepository;
 
-/*Controller Class for Order Controller
-Created By: Sakshi Shah
-*/
+/*Controller Class for Order Controller*/
 
 @Service
 public class OrderServiceImpl implements IOrderService {
 
 	@Autowired
 	IOrderRepository orderRepository;
-
-	@Autowired
-	IPlanterService planterService;
 
 	@Override
 	public OrderTable addOrder(OrderTable order) {
@@ -41,13 +36,16 @@ public class OrderServiceImpl implements IOrderService {
 	}
 
 	@Override
-	public OrderTable deleteOrder(int bookingId) throws OrderIdNotFoundException{
-		Optional<OrderTable> orderToBeRemoved = orderRepository.findById(bookingId);
-		if (orderToBeRemoved.isPresent()) {
-			orderRepository.deleteById(bookingId);
+public OrderTable deleteOrder(int bookingId){
+		
+		Optional<OrderTable> orderOptional = orderRepository.findById(bookingId);
+		
+		if(orderOptional.isPresent()) {
+			OrderTable here = orderOptional.get();
+			orderRepository.delete(here);
+			return here;
 		}
-		return orderToBeRemoved
-				.orElseThrow(() -> new OrderIdNotFoundException("Order with id: " + bookingId + " is not found"));
+		return orderOptional.orElseThrow(() -> new OrderIdNotFoundException("Order Not Found"));
 	}
 
 	@Override

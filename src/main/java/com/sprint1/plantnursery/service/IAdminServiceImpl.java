@@ -11,9 +11,7 @@ import com.sprint1.plantnursery.entity.Admin;
 import com.sprint1.plantnursery.entity.Plant;
 import com.sprint1.plantnursery.repository.IAdminRepository;
 
-/*Controller Class for Customer Controller
-Author : Nikhil Bandgad
-*/
+/*Controller Class for Customer Controller*/
 
 @Service
 @Transactional

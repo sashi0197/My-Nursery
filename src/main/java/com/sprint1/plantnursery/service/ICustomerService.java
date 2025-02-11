@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import com.sprint1.plantnursery.entity.Customer;
 import com.sprint1.plantnursery.exceptions.UserNotFoundException;
 
-/*Controller Class for Customer Controller
-Author : Saurabh Pawar
-*/
+/*Controller Class for Customer Controller*/
 
 @Service
 public interface ICustomerService {
